@@ -2,7 +2,9 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class ProductoCreate(BaseModel):
-    nombre: str = Field(..., min_length=1, max_length=255)
+    nombre: str = Field(..., min_length=3, max_length=255)
+    #Aplicando el principio de la TRIADA (INTEGRACION)
+
     stock: int = Field(..., ge=0)
 
 
