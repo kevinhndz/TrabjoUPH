@@ -5,6 +5,14 @@ class Revisar_Json_Crear(BaseModel):
    #Aplicando el principio de la TRIADA (INTEGRACION)
    stock: int = Field(..., ge=0)
 
+<<<<<<< HEAD
+=======
+class ProductoCreate(BaseModel):
+    nombre: str = Field(..., min_length=3, max_length=255)
+    #Aplicando el principio de la TRIADA (INTEGRACION)
+
+    stock: int = Field(..., ge=0)
+>>>>>>> main
 
 
 class ProductoResponse(BaseModel):
