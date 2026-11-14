@@ -23,3 +23,7 @@ class ProductoService:
 
        producto = Producto(nombre=json.nombre, stock=json.stock)
        return repo.crear(db, producto)
+
+   @staticmethod
+   def listar_productos_service(db: Session) -> list[Producto]:
+       return repo.listar(db)

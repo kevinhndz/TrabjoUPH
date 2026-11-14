@@ -15,4 +15,9 @@ class RepositoryProducto:
        return db.query(Producto).filter(Producto.nombre == json.nombre).first()
 
 
+   @staticmethod
+   def listar(db: Session) -> list[Producto]:
+       return db.query(Producto).all()
+
+
 
