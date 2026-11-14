@@ -19,9 +19,23 @@ def crear_producto(
    return service.crear_producto_service(db, json)
 
 
+@router.get(
+   "/",
+   response_model=list[ProductoResponse],
+   status_code=status.HTTP_200_OK,
+)
+def listar_productos(
+   db: Session = Depends(abrir_puerta),
+):
+   return service.listar_productos_service(db)
+
+
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def eliminar_producto(
    id: int,
    db: Session = Depends(abrir_puerta),
 ):
    service.eliminar_producto_service(db, id)
+
+
+

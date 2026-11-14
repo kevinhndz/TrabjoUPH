@@ -24,6 +24,7 @@ class ProductoService:
        producto = Producto(nombre=json.nombre, stock=json.stock)
        return repo.crear(db, producto)
 
+<<<<<<< HEAD
 
    @staticmethod
    def eliminar_producto_service(db: Session, id: int) -> None:
@@ -36,3 +37,8 @@ class ProductoService:
            )
 
        repo.eliminar(db, producto)
+=======
+   @staticmethod
+   def listar_productos_service(db: Session) -> list[Producto]:
+       return repo.listar(db)
+>>>>>>> 0a7c9ee0d4ef5bb4b1f92116d1cb197ca664b375
