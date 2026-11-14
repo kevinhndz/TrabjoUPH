@@ -17,3 +17,11 @@ def crear_producto(
    db: Session = Depends(abrir_puerta),
 ):
    return service.crear_producto_service(db, json)
+
+
+@router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def eliminar_producto(
+   id: int,
+   db: Session = Depends(abrir_puerta),
+):
+   service.eliminar_producto_service(db, id)

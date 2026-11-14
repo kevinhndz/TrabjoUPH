@@ -23,3 +23,16 @@ class ProductoService:
 
        producto = Producto(nombre=json.nombre, stock=json.stock)
        return repo.crear(db, producto)
+
+
+   @staticmethod
+   def eliminar_producto_service(db: Session, id: int) -> None:
+       producto = repo.buscar_por_id(db, id)
+
+       if producto is None:
+           raise HTTPException(
+               status_code=status.HTTP_404_NOT_FOUND,
+               detail="No existe un producto con ese id.",
+           )
+
+       repo.eliminar(db, producto)

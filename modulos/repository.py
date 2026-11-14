@@ -15,4 +15,14 @@ class RepositoryProducto:
        return db.query(Producto).filter(Producto.nombre == json.nombre).first()
 
 
+   @staticmethod
+   def buscar_por_id(db: Session, id: int) -> Producto | None:
+       return db.query(Producto).filter(Producto.id == id).first()
+
+
+   @staticmethod
+   def eliminar(db: Session, producto: Producto) -> None:
+       db.delete(producto)
+       db.commit()
+
 
